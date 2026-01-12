@@ -1,0 +1,142 @@
+{
+    "actions": [],
+    "autoname": "format:TR-{YY}-{MM}-{####}",
+    "creation": "2026-01-12 15:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "mold_project",
+        "project_name",
+        "report_date",
+        "inspector",
+        "column_break_1",
+        "trial_count",
+        "machine",
+        "material",
+        "section_params",
+        "parameters",
+        "section_result",
+        "visual_check",
+        "dimension_check",
+        "function_check",
+        "final_verdict",
+        "disposition",
+        "disposition_note"
+    ],
+    "fields": [
+        {
+            "fieldname": "mold_project",
+            "fieldtype": "Link",
+            "label": "模具项目",
+            "options": "Mold Project",
+            "reqd": 1
+        },
+        {
+            "fieldname": "project_name",
+            "fieldtype": "Data",
+            "label": "项目名称",
+            "read_only": 1,
+            "fetch_from": "mold_project.project_name"
+        },
+        {
+            "fieldname": "report_date",
+            "fieldtype": "Date",
+            "label": "报告日期",
+            "default": "Today",
+            "reqd": 1
+        },
+        {
+            "fieldname": "inspector",
+            "fieldtype": "Link",
+            "label": "质检员",
+            "options": "User"
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "trial_count",
+            "fieldtype": "Int",
+            "label": "试模次数",
+            "default": 1
+        },
+        {
+            "fieldname": "machine",
+            "fieldtype": "Data",
+            "label": "试模机台"
+        },
+        {
+            "fieldname": "material",
+            "fieldtype": "Data",
+            "label": "试模材料"
+        },
+        {
+            "fieldname": "section_params",
+            "fieldtype": "Section Break",
+            "label": "试模参数"
+        },
+        {
+            "fieldname": "parameters",
+            "fieldtype": "Table",
+            "label": "参数明细",
+            "options": "Trial Parameter Item"
+        },
+        {
+            "fieldname": "section_result",
+            "fieldtype": "Section Break",
+            "label": "质量判定"
+        },
+        {
+            "fieldname": "visual_check",
+            "fieldtype": "Select",
+            "label": "外观检查",
+            "options": "合格\n不合格",
+            "reqd": 1
+        },
+        {
+            "fieldname": "dimension_check",
+            "fieldtype": "Select",
+            "label": "尺寸检查",
+            "options": "合格\n不合格",
+            "reqd": 1
+        },
+        {
+            "fieldname": "function_check",
+            "fieldtype": "Select",
+            "label": "功能测试",
+            "options": "合格\n不合格",
+            "reqd": 1
+        },
+        {
+            "fieldname": "final_verdict",
+            "fieldtype": "Select",
+            "label": "综合判定",
+            "options": "合格\n不合格\n待确认",
+            "reqd": 1
+        },
+        {
+            "fieldname": "disposition",
+            "fieldtype": "Select",
+            "label": "处理决定",
+            "options": "出货\n返工\n报废",
+            "depends_on": "eval:doc.final_verdict=='合格' || doc.final_verdict=='不合格'"
+        },
+        {
+            "fieldname": "disposition_note",
+            "fieldtype": "Small Text",
+            "label": "处理说明"
+        }
+    ],
+    "module": "Dechuan",
+    "name": "Trial Report",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "read": 1,
+            "write": 1,
+            "role": "System Manager"
+        }
+    ]
+}

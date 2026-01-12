@@ -1,0 +1,167 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "format:{company_entity_code}{YYYY}{###}",
+    "creation": "2026-01-12 15:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "section_basic",
+        "project_name",
+        "customer",
+        "customer_mold_number",
+        "company_entity",
+        "column_break_1",
+        "category",
+        "mold_status",
+        "section_specs",
+        "mold_type",
+        "cavities",
+        "material",
+        "column_break_2",
+        "schedule_date",
+        "planned_delivery_date",
+        "section_drawings",
+        "preparation_drawing",
+        "formal_drawing",
+        "drawing_status",
+        "section_refs",
+        "sales_order"
+    ],
+    "fields": [
+        {
+            "fieldname": "section_basic",
+            "fieldtype": "Section Break",
+            "label": "Basic Info"
+        },
+        {
+            "fieldname": "project_name",
+            "fieldtype": "Data",
+            "label": "项目名称",
+            "reqd": 1
+        },
+        {
+            "fieldname": "customer",
+            "fieldtype": "Link",
+            "label": "客户",
+            "options": "Customer",
+            "reqd": 1
+        },
+        {
+            "fieldname": "customer_mold_number",
+            "fieldtype": "Data",
+            "label": "客户模号"
+        },
+        {
+            "fieldname": "company_entity",
+            "fieldtype": "Select",
+            "label": "公司主体",
+            "options": "德川\n裕霖",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "mold_status",
+            "fieldtype": "Select",
+            "label": "状态",
+            "options": "立项\n设计\n采购\n生产\n质检\n出货\n收款\n完成",
+            "default": "立项"
+        },
+        {
+            "fieldname": "section_specs",
+            "fieldtype": "Section Break",
+            "label": "技术参数"
+        },
+        {
+            "fieldname": "mold_type",
+            "fieldtype": "Select",
+            "label": "模具类型",
+            "options": "注塑模\n压铸模\n其他"
+        },
+        {
+            "fieldname": "cavities",
+            "fieldtype": "Int",
+            "label": "穴数"
+        },
+        {
+            "fieldname": "material",
+            "fieldtype": "Data",
+            "label": "主要材质"
+        },
+        {
+            "fieldname": "column_break_2",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "schedule_date",
+            "fieldtype": "Date",
+            "label": "排模日期"
+        },
+        {
+            "fieldname": "planned_delivery_date",
+            "fieldtype": "Date",
+            "label": "计划交付日期"
+        },
+        {
+            "fieldname": "section_drawings",
+            "fieldtype": "Section Break",
+            "label": "图纸信息"
+        },
+        {
+            "fieldname": "preparation_drawing",
+            "fieldtype": "Link",
+            "label": "备料图",
+            "options": "Preparation Drawing"
+        },
+        {
+            "fieldname": "formal_drawing",
+            "fieldtype": "Link",
+            "label": "正式图",
+            "options": "Formal Drawing"
+        },
+        {
+            "fieldname": "drawing_status",
+            "fieldtype": "Select",
+            "label": "图纸状态",
+            "options": "待设计\n设计中\n待确认\n已确认"
+        },
+        {
+            "fieldname": "section_refs",
+            "fieldtype": "Section Break",
+            "label": "关联单据"
+        },
+        {
+            "fieldname": "sales_order",
+            "fieldtype": "Link",
+            "label": "销售订单",
+            "options": "Sales Order"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2026-01-12 15:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Dechuan",
+    "name": "Mold Project",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1
+}

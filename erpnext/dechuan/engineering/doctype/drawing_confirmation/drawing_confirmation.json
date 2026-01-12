@@ -1,0 +1,146 @@
+{
+    "actions": [],
+    "autoname": "format:CF-{YY}-{MM}-{####}",
+    "creation": "2026-01-12 15:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "mold_project",
+        "project_name",
+        "column_break_1",
+        "drawing_type",
+        "drawing_ref",
+        "status",
+        "section_engineering",
+        "eng_confirmed_by",
+        "eng_confirm_time",
+        "section_production",
+        "prod_confirmed_by",
+        "prod_confirm_time",
+        "section_sales",
+        "sales_confirmed_by",
+        "sales_confirm_time",
+        "section_customer",
+        "customer_confirmed_by",
+        "customer_confirm_time",
+        "customer_feedback"
+    ],
+    "fields": [
+        {
+            "fieldname": "mold_project",
+            "fieldtype": "Link",
+            "label": "模具项目",
+            "options": "Mold Project",
+            "reqd": 1
+        },
+        {
+            "fieldname": "project_name",
+            "fieldtype": "Data",
+            "label": "项目名称",
+            "read_only": 1,
+            "fetch_from": "mold_project.project_name"
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "drawing_type",
+            "fieldtype": "Select",
+            "label": "图纸类型",
+            "options": "备料图\n正式图",
+            "reqd": 1
+        },
+        {
+            "fieldname": "drawing_ref",
+            "fieldtype": "Dynamic Link",
+            "label": "关联图纸",
+            "options": "drawing_type"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "label": "确认状态",
+            "options": "待工程确认\n待生产确认\n待业务确认\n待客户确认\n已确认\n已拒绝",
+            "default": "待工程确认"
+        },
+        {
+            "fieldname": "section_engineering",
+            "fieldtype": "Section Break",
+            "label": "工程确认"
+        },
+        {
+            "fieldname": "eng_confirmed_by",
+            "fieldtype": "Link",
+            "label": "工程确认人",
+            "options": "User"
+        },
+        {
+            "fieldname": "eng_confirm_time",
+            "fieldtype": "Datetime",
+            "label": "时间"
+        },
+        {
+            "fieldname": "section_production",
+            "fieldtype": "Section Break",
+            "label": "生产确认"
+        },
+        {
+            "fieldname": "prod_confirmed_by",
+            "fieldtype": "Link",
+            "label": "生产确认人",
+            "options": "User"
+        },
+        {
+            "fieldname": "prod_confirm_time",
+            "fieldtype": "Datetime",
+            "label": "时间"
+        },
+        {
+            "fieldname": "section_sales",
+            "fieldtype": "Section Break",
+            "label": "业务确认"
+        },
+        {
+            "fieldname": "sales_confirmed_by",
+            "fieldtype": "Link",
+            "label": "业务确认人",
+            "options": "User"
+        },
+        {
+            "fieldname": "sales_confirm_time",
+            "fieldtype": "Datetime",
+            "label": "时间"
+        },
+        {
+            "fieldname": "section_customer",
+            "fieldtype": "Section Break",
+            "label": "客户确认"
+        },
+        {
+            "fieldname": "customer_confirmed_by",
+            "fieldtype": "Data",
+            "label": "客户确认人(手填)"
+        },
+        {
+            "fieldname": "customer_confirm_time",
+            "fieldtype": "Datetime",
+            "label": "时间"
+        },
+        {
+            "fieldname": "customer_feedback",
+            "fieldtype": "Small Text",
+            "label": "客户反馈意见"
+        }
+    ],
+    "module": "Dechuan",
+    "name": "Drawing Confirmation",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "role": "System Manager",
+            "write": 1
+        }
+    ]
+}
