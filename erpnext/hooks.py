@@ -399,6 +399,9 @@ doc_events = {
 	"Integration Request": {
 		"validate": "erpnext.accounts.doctype.payment_request.payment_request.validate_payment"
 	},
+	"Sales Order": {
+		"on_submit": "erpnext.dechuan.sales_order_hook.create_mold_project_on_submit",
+	},
 }
 
 # function should expect the variable and doc as arguments
@@ -682,3 +685,7 @@ fields_for_group_similar_items = ["qty", "amount"]
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 ignore_translatable_strings_from = ["frappe"]
+
+# Dechuan Custom Fields
+from erpnext.dechuan.custom_fields import get_dechuan_custom_fields
+custom_fields = get_dechuan_custom_fields()

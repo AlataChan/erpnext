@@ -88,7 +88,30 @@ erpnext/
 }
 ```
 
-## 4. 常用命令速查
+## 4. AI Agent 开发环境配置 (V2.0 新增)
+由于 V2.0 架构深度集成了 AI Agent，您需要额外配置以下环境变量及工具。
+
+### 4.1 配置文件
+在 `site_config.json` 中添加 AI 服务所需的密钥（请勿提交到 Git）：
+```json
+{
+ "developer_mode": 1,
+ "ai_agent_config": {
+  "openai_api_key": "sk-...",
+  "claude_api_key": "sk-ant-...",
+  "wechat_corp_id": "ww...",
+  "wechat_corp_secret": "..."
+ }
+}
+```
+
+### 4.2 Python 依赖
+AI Agent 模块可能需要额外的 Python 库，请并在 `pyproject.toml` 或 `requirements.txt` 中声明，并安装：
+```bash
+./env/bin/pip install langchain openai pdfplumber wechatpy
+```
+
+## 5. 常用命令速查
 
 | 想要做什么 | 命令 |
 |------------|------|

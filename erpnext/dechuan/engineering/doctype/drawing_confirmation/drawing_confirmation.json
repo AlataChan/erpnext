@@ -48,7 +48,7 @@
             "fieldname": "drawing_type",
             "fieldtype": "Select",
             "label": "图纸类型",
-            "options": "备料图\n正式图",
+            "options": "Preparation Drawing\nFormal Drawing",
             "reqd": 1
         },
         {

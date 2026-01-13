@@ -1,0 +1,54 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "naming_series:",
+    "creation": "2026-01-12 15:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "mold_project",
+        "drawing_file",
+        "version",
+        "naming_series"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "PD-.YYYY.-",
+            "hidden": 1
+        },
+        {
+            "fieldname": "mold_project",
+            "fieldtype": "Link",
+            "label": "Mold Project",
+            "options": "Mold Project",
+            "reqd": 1
+        },
+        {
+            "fieldname": "drawing_file",
+            "fieldtype": "Attach",
+            "label": "Drawing File",
+            "reqd": 1
+        },
+        {
+            "fieldname": "version",
+            "fieldtype": "Data",
+            "label": "Version",
+            "default": "1.0"
+        }
+    ],
+    "model": "Dechuan",
+    "module": "Dechuan",
+    "name": "Preparation Drawing",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "read": 1,
+            "write": 1,
+            "role": "System Manager"
+        }
+    ]
+}
