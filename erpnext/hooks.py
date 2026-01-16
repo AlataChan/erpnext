@@ -378,7 +378,13 @@ doc_events = {
 		"validate": [
 			"erpnext.regional.united_arab_emirates.utils.update_grand_total_for_rcm",
 			"erpnext.regional.united_arab_emirates.utils.validate_returns",
-		]
+		],
+		"on_submit": "erpnext.dechuan.cost_hook.create_cost_ledger_entry",
+		"on_cancel": "erpnext.dechuan.cost_hook.on_cancel_cost_ledger_entry",
+	},
+	"Purchase Receipt": {
+		"on_submit": "erpnext.dechuan.cost_hook.create_cost_ledger_entry",
+		"on_cancel": "erpnext.dechuan.cost_hook.on_cancel_cost_ledger_entry",
 	},
 	"Payment Entry": {
 		"on_trash": "erpnext.regional.check_deletion_permission",
@@ -434,6 +440,7 @@ scheduler_events = {
 	},
 	"hourly": [
 		"erpnext.projects.doctype.project.project.hourly_reminder",
+		"erpnext.dechuan.ai_agents.reminder_agent.run_confirmation_reminder",
 	],
 	"hourly_long": [],
 	"hourly_maintenance": [
@@ -476,6 +483,7 @@ scheduler_events = {
 		"erpnext.manufacturing.doctype.bom_update_tool.bom_update_tool.auto_update_latest_price_in_all_boms",
 		"erpnext.crm.utils.open_leads_opportunities_based_on_todays_event",
 		"erpnext.assets.doctype.asset.depreciation.post_depreciation_entries",
+		"erpnext.dechuan.ai_agents.collection_agent.run_collection_reminder",
 	],
 	"weekly": [
 		"erpnext.accounts.utils.auto_create_exchange_rate_revaluation_weekly",

@@ -1,0 +1,152 @@
+{
+    "actions": [],
+    "autoname": "format:RC-{customer_abbr}-{YYYYMM}-{###}",
+    "creation": "2026-01-15 13:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "customer",
+        "customer_name",
+        "customer_abbr",
+        "column_break_1",
+        "from_date",
+        "to_date",
+        "status",
+        "section_delivery_notes",
+        "delivery_notes",
+        "section_summary",
+        "total_qty",
+        "total_amount",
+        "column_break_2",
+        "confirmed_by_customer",
+        "confirm_date",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "customer",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "客户",
+            "options": "Customer",
+            "reqd": 1
+        },
+        {
+            "fetch_from": "customer.customer_name",
+            "fieldname": "customer_name",
+            "fieldtype": "Data",
+            "label": "客户名称",
+            "read_only": 1
+        },
+        {
+            "fieldname": "customer_abbr",
+            "fieldtype": "Data",
+            "label": "客户简称",
+            "hidden": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "from_date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "label": "起始日期",
+            "reqd": 1
+        },
+        {
+            "fieldname": "to_date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "label": "截止日期",
+            "reqd": 1
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "状态",
+            "options": "Draft\nSent\nConfirmed\nDisputed",
+            "default": "Draft"
+        },
+        {
+            "fieldname": "section_delivery_notes",
+            "fieldtype": "Section Break",
+            "label": "送货明细"
+        },
+        {
+            "fieldname": "delivery_notes",
+            "fieldtype": "Table",
+            "label": "送货单",
+            "options": "Reconciliation Item"
+        },
+        {
+            "fieldname": "section_summary",
+            "fieldtype": "Section Break",
+            "label": "汇总"
+        },
+        {
+            "fieldname": "total_qty",
+            "fieldtype": "Float",
+            "label": "合计数量",
+            "read_only": 1
+        },
+        {
+            "fieldname": "total_amount",
+            "fieldtype": "Currency",
+            "label": "合计金额",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_2",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "confirmed_by_customer",
+            "fieldtype": "Data",
+            "label": "客户确认人"
+        },
+        {
+            "fieldname": "confirm_date",
+            "fieldtype": "Date",
+            "label": "客户确认日期"
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "Small Text",
+            "label": "备注"
+        }
+    ],
+    "module": "Dechuan",
+    "name": "Reconciliation",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Accounts User",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1
+}

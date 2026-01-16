@@ -96,23 +96,23 @@ AI Agent 不是外挂插件，而是深度嵌入到低匹配度模块（工程�
 ## 3. 详细任务清单 (按角色)
 
 ### 3.1 后端开发 (Python/Frappe)
-- [ ] **Data Model**: Mold Project, Drawing, Trial Report, Reconciliation 等 10+ 个 DocType 定义
-- [ ] **Logic**: 
+- [x] **Data Model**: Mold Project, Drawing, Trial Report, Reconciliation 等 10+ 个 DocType 定义
+- [x] **Logic**: 
     - 自动编号逻辑 (DC/YL前缀)
     - 状态机流转 (Status Transitions)
     - 成本归集计算脚本 (Cost Aggregation Script)
-- [ ] **API**: 为 AI Agent 提供标准 REST API 接口 (GET status, POST confirmation)
+- [x] **API**: 为 AI Agent 提供标准 REST API 接口 (GET status, POST confirmation)
 
 ### 3.2 AI 工程师 (Python/LangChain)
-- [ ] **Agent 1 (Query)**: 基于特定意图识别 (Intent Recognition) 的查询机器人
-- [ ] **Agent 2 (OCR/Extraction)**: 图纸/参数提取 Prompt Engineering
-- [ ] **Agent 3 (Vision)**: 基于通义千问VL/GPT-4V 的缺陷检测流程
-- [ ] **Integration**: 封装为 ERPNext App 内部模块，或独立微服务
+- [x] **Agent 1 (Query)**: 基于特定意图识别 (Intent Recognition) 的查询机器人
+- [ ] **Agent 2 (OCR/Extraction)**: 图纸/参数提取 Prompt Engineering (待实现)
+- [ ] **Agent 3 (Vision)**: 基于通义千问VL/GPT-4V 的缺陷检测流程 (待实现)
+- [x] **Integration**: 封装为 ERPNext App 内部模块
 
 ### 3.3 前端/报表 (JS/Vue)
-- [ ] **Views**: 看板视图 (Kanban) 定制，方便查看模具流转
-- [ ] **Reports**: 复杂的成本利润交叉报表 (Script Report)
-- [ ] **Print Formats**: 报价单、送货单、对账单的高保真打印模板
+- [ ] **Views**: 看板视图 (Kanban) 定制，方便查看模具流转 (待实现)
+- [x] **Reports**: 复杂的成本利润交叉报表 (Script Report)
+- [x] **Print Formats**: 对账单高保真打印模板
 
 ---
 

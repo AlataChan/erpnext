@@ -1,0 +1,135 @@
+{
+    "actions": [],
+    "creation": "2026-01-15 15:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "issingle": 1,
+    "field_order": [
+        "section_general",
+        "default_company_entity",
+        "mold_number_prefix_dc",
+        "mold_number_prefix_yl",
+        "section_wechat",
+        "wechat_work_enabled",
+        "wechat_corp_id",
+        "wechat_agent_id",
+        "wechat_secret",
+        "section_reminder",
+        "confirmation_timeout_hours",
+        "collection_reminder_days",
+        "section_ai",
+        "ai_provider",
+        "ai_api_key",
+        "ai_model"
+    ],
+    "fields": [
+        {
+            "fieldname": "section_general",
+            "fieldtype": "Section Break",
+            "label": "通用设置"
+        },
+        {
+            "fieldname": "default_company_entity",
+            "fieldtype": "Select",
+            "label": "默认公司主体",
+            "options": "德川\n裕霖",
+            "default": "德川"
+        },
+        {
+            "fieldname": "mold_number_prefix_dc",
+            "fieldtype": "Data",
+            "label": "德川模具编号前缀",
+            "default": "DC"
+        },
+        {
+            "fieldname": "mold_number_prefix_yl",
+            "fieldtype": "Data",
+            "label": "裕霖模具编号前缀",
+            "default": "YL"
+        },
+        {
+            "fieldname": "section_wechat",
+            "fieldtype": "Section Break",
+            "label": "企业微信集成"
+        },
+        {
+            "fieldname": "wechat_work_enabled",
+            "fieldtype": "Check",
+            "label": "启用企业微信推送"
+        },
+        {
+            "fieldname": "wechat_corp_id",
+            "fieldtype": "Data",
+            "label": "企业ID (CorpID)",
+            "depends_on": "eval:doc.wechat_work_enabled"
+        },
+        {
+            "fieldname": "wechat_agent_id",
+            "fieldtype": "Data",
+            "label": "应用ID (AgentID)",
+            "depends_on": "eval:doc.wechat_work_enabled"
+        },
+        {
+            "fieldname": "wechat_secret",
+            "fieldtype": "Password",
+            "label": "应用Secret",
+            "depends_on": "eval:doc.wechat_work_enabled"
+        },
+        {
+            "fieldname": "section_reminder",
+            "fieldtype": "Section Break",
+            "label": "提醒设置"
+        },
+        {
+            "fieldname": "confirmation_timeout_hours",
+            "fieldtype": "Int",
+            "label": "图纸确认超时(小时)",
+            "default": 24,
+            "description": "超过此时间未确认将触发催办"
+        },
+        {
+            "fieldname": "collection_reminder_days",
+            "fieldtype": "Data",
+            "label": "收款提醒天数",
+            "default": "30,60,90",
+            "description": "逗号分隔的逾期天数，触发多级提醒"
+        },
+        {
+            "fieldname": "section_ai",
+            "fieldtype": "Section Break",
+            "label": "AI 设置"
+        },
+        {
+            "fieldname": "ai_provider",
+            "fieldtype": "Select",
+            "label": "AI 服务商",
+            "options": "DeepSeek\nOpenAI\nClaude\nQwen"
+        },
+        {
+            "fieldname": "ai_api_key",
+            "fieldtype": "Password",
+            "label": "API Key"
+        },
+        {
+            "fieldname": "ai_model",
+            "fieldtype": "Data",
+            "label": "模型名称",
+            "default": "deepseek-chat"
+        }
+    ],
+    "module": "Dechuan",
+    "name": "Dechuan Settings",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "read": 1,
+            "role": "System Manager",
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1
+}

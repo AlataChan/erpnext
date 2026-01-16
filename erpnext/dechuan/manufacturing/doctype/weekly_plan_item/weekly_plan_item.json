@@ -1,0 +1,70 @@
+{
+    "actions": [],
+    "creation": "2026-01-15 12:35:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "istable": 1,
+    "field_order": [
+        "mold_project",
+        "process_name",
+        "assigned_to",
+        "planned_date",
+        "planned_hours",
+        "priority",
+        "notes"
+    ],
+    "fields": [
+        {
+            "fieldname": "mold_project",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "模具项目",
+            "options": "Mold Project",
+            "reqd": 1
+        },
+        {
+            "fieldname": "process_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "工序名称",
+            "reqd": 1
+        },
+        {
+            "fieldname": "assigned_to",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "指派给",
+            "options": "User"
+        },
+        {
+            "fieldname": "planned_date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "label": "计划日期"
+        },
+        {
+            "fieldname": "planned_hours",
+            "fieldtype": "Float",
+            "in_list_view": 1,
+            "label": "计划工时"
+        },
+        {
+            "fieldname": "priority",
+            "fieldtype": "Select",
+            "label": "优先级",
+            "options": "Low\nMedium\nHigh\nUrgent",
+            "default": "Medium"
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "Small Text",
+            "label": "备注"
+        }
+    ],
+    "module": "Dechuan",
+    "name": "Weekly Plan Item",
+    "owner": "Administrator",
+    "permissions": [],
+    "sort_field": "modified",
+    "sort_order": "DESC"
+}

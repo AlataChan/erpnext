@@ -1,0 +1,53 @@
+{
+    "actions": [],
+    "creation": "2026-01-15 12:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "istable": 1,
+    "field_order": [
+        "parameter_name",
+        "standard_value",
+        "actual_value",
+        "unit",
+        "verdict"
+    ],
+    "fields": [
+        {
+            "fieldname": "parameter_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "参数名称",
+            "reqd": 1
+        },
+        {
+            "fieldname": "standard_value",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "标准值"
+        },
+        {
+            "fieldname": "actual_value",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "实测值"
+        },
+        {
+            "fieldname": "unit",
+            "fieldtype": "Data",
+            "label": "单位"
+        },
+        {
+            "fieldname": "verdict",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "判定",
+            "options": "合格\n不合格\n待确认"
+        }
+    ],
+    "module": "Dechuan",
+    "name": "Trial Parameter Item",
+    "owner": "Administrator",
+    "permissions": [],
+    "sort_field": "modified",
+    "sort_order": "DESC"
+}

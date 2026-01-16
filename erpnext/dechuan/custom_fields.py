@@ -31,5 +31,40 @@ def get_dechuan_custom_fields():
                 "fetch_from": "customer.default_company_entity",
                 "description": "所属主体 (Auto-fetched from Customer)"
             }
+        ],
+        "Purchase Order": [
+            {
+                "fieldname": "mold_project",
+                "label": "关联模具项目 (Mold Project)",
+                "fieldtype": "Link",
+                "options": "Mold Project",
+                "insert_after": "transaction_date",
+                "reqd": 0,
+                "description": "该采购单所属的模具项目"
+            }
+        ],
+        "Purchase Receipt": [
+            {
+                "fieldname": "mold_project",
+                "label": "关联模具项目 (Mold Project)",
+                "fieldtype": "Link",
+                "options": "Mold Project",
+                "insert_after": "posting_date",
+                "read_only": 1,
+                "fetch_from": "purchase_order.mold_project",
+                "description": "继承自采购订单"
+            }
+        ],
+        "Purchase Invoice": [
+            {
+                "fieldname": "mold_project",
+                "label": "关联模具项目 (Mold Project)",
+                "fieldtype": "Link",
+                "options": "Mold Project",
+                "insert_after": "posting_date",
+                "read_only": 1,
+                "fetch_from": "purchase_order.mold_project", # Or purchase_receipt
+                "description": "继承自采购单据"
+            }
         ]
     }

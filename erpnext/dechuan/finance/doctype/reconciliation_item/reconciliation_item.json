@@ -1,0 +1,54 @@
+{
+    "actions": [],
+    "creation": "2026-01-15 13:10:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "istable": 1,
+    "field_order": [
+        "delivery_note",
+        "posting_date",
+        "qty",
+        "amount",
+        "remarks"
+    ],
+    "fields": [
+        {
+            "fieldname": "delivery_note",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "送货单号",
+            "options": "Delivery Note",
+            "reqd": 1
+        },
+        {
+            "fieldname": "posting_date",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "label": "送货日期",
+            "read_only": 1
+        },
+        {
+            "fieldname": "qty",
+            "fieldtype": "Float",
+            "in_list_view": 1,
+            "label": "数量"
+        },
+        {
+            "fieldname": "amount",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "金额"
+        },
+        {
+            "fieldname": "remarks",
+            "fieldtype": "Data",
+            "label": "备注"
+        }
+    ],
+    "module": "Dechuan",
+    "name": "Reconciliation Item",
+    "owner": "Administrator",
+    "permissions": [],
+    "sort_field": "modified",
+    "sort_order": "DESC"
+}

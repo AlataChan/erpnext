@@ -1,54 +1,95 @@
 {
     "actions": [],
-    "allow_rename": 1,
-    "autoname": "naming_series:",
-    "creation": "2026-01-12 15:00:00.000000",
+    "camel_case": "PreparationDrawing",
+    "creation": "2026-01-15 11:00:00.000000",
     "doctype": "DocType",
     "engine": "InnoDB",
     "field_order": [
         "mold_project",
-        "drawing_file",
+        "project_name",
+        "column_break_1",
         "version",
-        "naming_series"
+        "status",
+        "section_break_1",
+        "drawing_file",
+        "description"
     ],
     "fields": [
         {
-            "fieldname": "naming_series",
-            "fieldtype": "Select",
-            "label": "Series",
-            "options": "PD-.YYYY.-",
-            "hidden": 1
-        },
-        {
             "fieldname": "mold_project",
             "fieldtype": "Link",
-            "label": "Mold Project",
+            "in_list_view": 1,
+            "label": "关联模具项目",
             "options": "Mold Project",
             "reqd": 1
         },
         {
-            "fieldname": "drawing_file",
-            "fieldtype": "Attach",
-            "label": "Drawing File",
+            "fetch_from": "mold_project.project_name",
+            "fieldname": "project_name",
+            "fieldtype": "Data",
+            "label": "项目名称",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "default": "V1",
+            "fieldname": "version",
+            "fieldtype": "Data",
+            "label": "版本号",
             "reqd": 1
         },
         {
-            "fieldname": "version",
-            "fieldtype": "Data",
-            "label": "Version",
-            "default": "1.0"
+            "default": "Draft",
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "状态",
+            "options": "Draft\nVerified\nReleased"
+        },
+        {
+            "fieldname": "section_break_1",
+            "fieldtype": "Section Break",
+            "label": "文件"
+        },
+        {
+            "fieldname": "drawing_file",
+            "fieldtype": "Attach",
+            "label": "图纸文件",
+            "reqd": 1
+        },
+        {
+            "fieldname": "description",
+            "fieldtype": "Small Text",
+            "label": "备注"
         }
     ],
-    "model": "Dechuan",
+    "issingle": 0,
+    "links": [],
+    "modified": "2026-01-15 11:00:00.000000",
+    "modified_by": "Administrator",
     "module": "Dechuan",
     "name": "Preparation Drawing",
+    "autoname": "format:PD-{mold_project}-{###}",
     "owner": "Administrator",
     "permissions": [
         {
             "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
             "read": 1,
-            "write": 1,
-            "role": "System Manager"
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
         }
-    ]
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": [],
+    "track_changes": 1
 }

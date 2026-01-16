@@ -45,49 +45,51 @@
 ## 3. 详细任务分解
 
 ### 3.1 基础架构与配置
-- [ ] 初始化 `dechuan` 模块/App
-- [ ] 配置 `hooks.py` 挂载点
-- [ ] 扩展 `Customer` 字段：`reconciliation_habit` (对账习惯), `company_entity` (默认主体)
+- [x] 初始化 `dechuan` 模块/App
+- [x] 配置 `hooks.py` 挂载点
+- [x] 扩展 `Customer` 字段：`reconciliation_habit` (对账习惯), `company_entity` (默认主体)
 - [ ] 扩展 `Company` 字段：支持双主体逻辑 (或通过自定义字段隔离)
 
 ### 3.2 模具管理模块 (Mold Management)
-- [ ] **Mold Project**
-    - [ ] 定义字段：基本信息、技术参数、状态流、关联单据
-    - [ ] 编写 `autoname` 逻辑：`format:{company_code}{YYYY}{###}`
+- [x] **Mold Project**
+    - [x] 定义字段：基本信息、技术参数、状态流、关联单据
+    - [x] 编写 `autoname` 逻辑：`format:{company_code}{YYYY}{###}`
     - [ ] 编写 Dashboard：显示关联的订单、采购、图纸、试模记录
-- [ ] **关联逻辑**
-    - [ ] 销售订单提交 -> 自动创建 Mold Project
+- [x] **关联逻辑**
+    - [x] 销售订单提交 -> 自动创建 Mold Project
 
 ### 3.3 工程管理模块 (Engineering)
-- [ ] **Preparation Drawing (备料图)**
-    - [ ] 文件上传字段
+- [x] **Preparation Drawing (备料图)**
+    - [x] 文件上传字段
     - [ ] 提取BOM逻辑 (可选：解析Excel BOM)
-- [ ] **Formal Drawing (正式图)**
-    - [ ] 版本控制逻辑
-- [ ] **Drawing Confirmation (图纸确认)**
-    - [ ] 工作流状态：工程确认 -> 生产确认 -> 业务确认 -> 客户确认
-    - [ ] 钉钉/企微消息通知集成
+- [x] **Formal Drawing (正式图)**
+    - [x] 版本控制逻辑
+- [x] **Drawing Confirmation (图纸确认)**
+    - [x] 工作流状态：工程确认 -> 生产确认 -> 业务确认 -> 客户确认
+    - [ ] 钉钉/企微消息通知集成 (框架已搭建，需配置)
 
 ### 3.4 生产与质量 (Production & Quality)
-- [ ] **Weekly Plan (周计划)**
-    - [ ] 汇总本周所有进行中模具的工序任务
-    - [ ] 任务分配给具体人员
-- [ ] **Trial Report (试模报告)**
-    - [ ] 试模参数子表 (参数名, 标准值, 实测值, 判定)
-    - [ ] 综合判定与处置建议 (出货/返工/报废)
+- [x] **Weekly Plan (周计划)**
+    - [x] 汇总本周所有进行中模具的工序任务
+    - [x] 任务分配给具体人员
+- [x] **Trial Report (试模报告)**
+    - [x] 试模参数子表 (参数名, 标准值, 实测值, 判定)
+    - [x] 综合判定与处置建议 (出货/返工/报废)
 
 ### 3.5 财务模块 (Finance)
-- [ ] **Reconciliation (对账单)**
-    - [ ] 选取客户和日期范围 -> 自动拉取未对账送货单
+- [x] **Reconciliation (对账单)**
+    - [x] 选取客户和日期范围 -> 自动拉取未对账送货单
     - [ ] 生成对账PDF模板
+- [x] **Mold Cost Ledger (成本账本)**
+    - [x] 采购入库自动归集成本
 - [ ] **Mold Cost Sheet**
     - [ ] 报表开发：按模具汇总采购成本、工时成本
 
 ### 3.6 AI Agents (Python & Integration)
-- [ ] **Progress Agent**: API端点开发，接收自然语言查询，返回模具状态摘要
-- [ ] **Reminder Agent**: Scheduler开发，每日扫描超时任务，发送提醒
-- [ ] **Experience Agent**: 匹配相似模具，提取历史问题
-- [ ] **Collection Agent**: 扫描应收账款，计算账龄，触发提醒
+- [x] **Progress Agent**: API端点开发，接收自然语言查询，返回模具状态摘要
+- [x] **Reminder Agent**: Scheduler开发，每小时扫描超时确认，发送提醒
+- [x] **Experience Agent**: 匹配相似模具，提取历史问题
+- [x] **Collection Agent**: 每日扫描应收账款，计算账龄，触发提醒
 
 ---
 

@@ -140,7 +140,48 @@
         }
     ],
     "index_web_pages_for_search": 1,
-    "links": [],
+    "links": [
+        {
+            "group": "销售",
+            "link_doctype": "Sales Order",
+            "link_fieldname": "mold_project"
+        },
+        {
+            "group": "采购",
+            "link_doctype": "Purchase Order",
+            "link_fieldname": "mold_project"
+        },
+        {
+            "group": "采购",
+            "link_doctype": "Purchase Receipt",
+            "link_fieldname": "mold_project"
+        },
+        {
+            "group": "工程",
+            "link_doctype": "Preparation Drawing",
+            "link_fieldname": "mold_project"
+        },
+        {
+            "group": "工程",
+            "link_doctype": "Formal Drawing",
+            "link_fieldname": "mold_project"
+        },
+        {
+            "group": "工程",
+            "link_doctype": "Drawing Confirmation",
+            "link_fieldname": "mold_project"
+        },
+        {
+            "group": "质量",
+            "link_doctype": "Trial Report",
+            "link_fieldname": "mold_project"
+        },
+        {
+            "group": "财务",
+            "link_doctype": "Mold Cost Ledger",
+            "link_fieldname": "mold_project"
+        }
+    ],
     "modified": "2026-01-12 15:00:00.000000",
     "modified_by": "Administrator",
     "module": "Dechuan",

@@ -23,7 +23,9 @@
         "section_customer",
         "customer_confirmed_by",
         "customer_confirm_time",
-        "customer_feedback"
+        "customer_feedback",
+        "section_internal",
+        "status_changed_at"
     ],
     "fields": [
         {
@@ -131,6 +133,19 @@
             "fieldname": "customer_feedback",
             "fieldtype": "Small Text",
             "label": "客户反馈意见"
+        },
+        {
+            "fieldname": "section_internal",
+            "fieldtype": "Section Break",
+            "label": "系统字段",
+            "collapsible": 1
+        },
+        {
+            "fieldname": "status_changed_at",
+            "fieldtype": "Datetime",
+            "label": "状态变更时间",
+            "read_only": 1,
+            "hidden": 1
         }
     ],
     "module": "Dechuan",

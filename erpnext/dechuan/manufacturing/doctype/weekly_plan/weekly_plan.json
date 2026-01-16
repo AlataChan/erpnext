@@ -1,0 +1,104 @@
+{
+    "actions": [],
+    "autoname": "format:WP-{YYYY}-W{##}",
+    "creation": "2026-01-15 12:30:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "week_start",
+        "week_end",
+        "column_break_1",
+        "status",
+        "prepared_by",
+        "section_tasks",
+        "tasks",
+        "section_summary",
+        "total_projects",
+        "total_hours_planned"
+    ],
+    "fields": [
+        {
+            "fieldname": "week_start",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "label": "周开始日期",
+            "reqd": 1
+        },
+        {
+            "fieldname": "week_end",
+            "fieldtype": "Date",
+            "in_list_view": 1,
+            "label": "周结束日期",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "状态",
+            "options": "Draft\nPublished\nCompleted",
+            "default": "Draft"
+        },
+        {
+            "fieldname": "prepared_by",
+            "fieldtype": "Link",
+            "label": "编制人",
+            "options": "User"
+        },
+        {
+            "fieldname": "section_tasks",
+            "fieldtype": "Section Break",
+            "label": "任务明细"
+        },
+        {
+            "fieldname": "tasks",
+            "fieldtype": "Table",
+            "label": "周计划任务",
+            "options": "Weekly Plan Item"
+        },
+        {
+            "fieldname": "section_summary",
+            "fieldtype": "Section Break",
+            "label": "汇总"
+        },
+        {
+            "fieldname": "total_projects",
+            "fieldtype": "Int",
+            "label": "涉及项目数",
+            "read_only": 1
+        },
+        {
+            "fieldname": "total_hours_planned",
+            "fieldtype": "Float",
+            "label": "计划工时合计",
+            "read_only": 1
+        }
+    ],
+    "module": "Dechuan",
+    "name": "Weekly Plan",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "write": 1
+        },
+        {
+            "create": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Manufacturing User",
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1
+}

@@ -1,0 +1,93 @@
+{
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2026-01-15 10:00:00.000000",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "mold_project",
+        "cost_type",
+        "amount",
+        "column_break_1",
+        "voucher_type",
+        "voucher_no",
+        "posting_date",
+        "description"
+    ],
+    "fields": [
+        {
+            "fieldname": "mold_project",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Mold Project",
+            "options": "Mold Project",
+            "reqd": 1
+        },
+        {
+            "fieldname": "cost_type",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "label": "Cost Type",
+            "options": "Material\nLabor\nOverhead\nOutsourcing",
+            "reqd": 1
+        },
+        {
+            "fieldname": "amount",
+            "fieldtype": "Currency",
+            "in_list_view": 1,
+            "label": "Amount",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "voucher_type",
+            "fieldtype": "Link",
+            "label": "Voucher Type",
+            "options": "DocType"
+        },
+        {
+            "fieldname": "voucher_no",
+            "fieldtype": "Dynamic Link",
+            "label": "Voucher No",
+            "options": "voucher_type"
+        },
+        {
+            "fieldname": "posting_date",
+            "fieldtype": "Date",
+            "label": "Posting Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "description",
+            "fieldtype": "Small Text",
+            "label": "Description"
+        }
+    ],
+    "issingle": 0,
+    "links": [],
+    "modified": "2026-01-15 10:00:00.000000",
+    "modified_by": "Administrator",
+    "module": "Dechuan",
+    "name": "Mold Cost Ledger",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
+}
