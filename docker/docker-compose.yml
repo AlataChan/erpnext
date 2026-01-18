@@ -1,0 +1,124 @@
+# ============================================
+# ERPNext Docker Compose - 开发环境配置
+# 德川/裕霖业务管理系统
+# ============================================
+# 使用方法:
+#   docker compose up -d
+#   docker compose logs -f
+# ============================================
+
+services:
+  # ==================== 数据库服务 ====================
+  mariadb:
+    image: mariadb:10.6
+    container_name: ${COMPOSE_PROJECT_NAME:-erpnext}-mariadb
+    restart: unless-stopped
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --skip-character-set-client-handshake
+      - --skip-innodb-read-only-compressed
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-erpnext_root}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-erpnext}
+      MYSQL_USER: ${MYSQL_USER:-erpnext}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-erpnext}
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - erpnext-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-erpnext_root}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ==================== Redis 缓存服务 ====================
+  redis-cache:
+    image: redis:7-alpine
+    container_name: ${COMPOSE_PROJECT_NAME:-erpnext}-redis-cache
+    restart: unless-stopped
+    volumes:
+      - redis-cache-data:/data
+    networks:
+      - erpnext-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ==================== Redis 队列服务 ====================
+  redis-queue:
+    image: redis:7-alpine
+    container_name: ${COMPOSE_PROJECT_NAME:-erpnext}-redis-queue
+    restart: unless-stopped
+    volumes:
+      - redis-queue-data:/data
+    networks:
+      - erpnext-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ==================== Frappe/ERPNext 后端服务 ====================
+  backend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      args:
+        FRAPPE_VERSION: ${FRAPPE_VERSION:-version-16}
+    container_name: ${COMPOSE_PROJECT_NAME:-erpnext}-backend
+    restart: unless-stopped
+    environment:
+      - SITE_NAME=${SITE_NAME:-erp.localhost}
+      - MYSQL_HOST=mariadb
+      - MYSQL_PORT=3306
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-erpnext_root}
+      - REDIS_CACHE=redis-cache:6379
+      - REDIS_QUEUE=redis-queue:6379
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
+      - DEVELOPER_MODE=${DEVELOPER_MODE:-0}
+      # AI Agent 配置
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY:-}
+      - WECHAT_CORP_ID=${WECHAT_CORP_ID:-}
+      - WECHAT_CORP_SECRET=${WECHAT_CORP_SECRET:-}
+    volumes:
+      - sites-data:/home/frappe/frappe-bench/sites
+      - logs-data:/home/frappe/frappe-bench/logs
+    ports:
+      - "${WEBSERVER_PORT:-8000}:8000"
+      - "${SOCKETIO_PORT:-9000}:9000"
+    networks:
+      - erpnext-network
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis-cache:
+        condition: service_healthy
+      redis-queue:
+        condition: service_healthy
+
+# ==================== 数据卷定义 ====================
+volumes:
+  mariadb-data:
+    driver: local
+  redis-cache-data:
+    driver: local
+  redis-queue-data:
+    driver: local
+  sites-data:
+    driver: local
+  logs-data:
+    driver: local
+
+# ==================== 网络定义 ====================
+networks:
+  erpnext-network:
+    driver: bridge
+    name: ${COMPOSE_PROJECT_NAME:-erpnext}-network

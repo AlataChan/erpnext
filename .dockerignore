@@ -1,0 +1,76 @@
+# ============================================
+# Docker 构建忽略文件
+# 德川/裕霖业务管理系统
+# ============================================
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Docker 配置文件（保留脚本目录）
+docker/*.yml
+docker/*.example
+docker/nginx/
+docker/README.md
+
+# 文档目录
+docs/
+*.pdf
+*.docx
+
+# Markdown（保留 README.md）
+planning-with-files/*.md
+docs/*.md
+
+# 开发工具配置
+.vscode/
+.idea/
+.cursor/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.env
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Node
+node_modules/
+
+# 测试
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# 其他
+*.log
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+
+# 规划文件
+planning-with-files/
+
+# 编辑器配置
+.editorconfig
+.prettierrc
+.eslintrc*
+commitlint.config.js
+codecov.yml
+crowdin.yml
+sider.yml
+babel_extractors.csv
